@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Event extends Component {
   render() {
     const { event } = this.props;
-    
+
     return (
       <div className='ui items'>
         <div className='item'>
@@ -18,7 +18,7 @@ class Event extends Component {
             </div>
             <div className='extra'>
               Price {event.eventPrice},
-              Time {event.eventPrice}
+              Time {event.eventTime}
             </div>
           </div>
         </div>

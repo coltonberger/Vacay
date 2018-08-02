@@ -3,17 +3,17 @@ import React, { Component } from 'react';
 class ToolBar extends Component {
   render() {
     return (
-      <div class="ui menu">
-        <div class="header item">
+      <div className="ui menu">
+        <div className="header item">
           Vaca
         </div>
-        <a class="item">
+        <a className="item">
           About Us
         </a>
-        <a class="item">
+        <a className="item">
           Login
         </a>
-        <a class="item">
+        <a className="item">
           Signup
         </a>
       </div>

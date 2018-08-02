@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Schedule extends Component {
   render() {
     return (
-      <div class="ui menu">
+      <div className="ui menu">
         Schedule Component
       </div>
     );
