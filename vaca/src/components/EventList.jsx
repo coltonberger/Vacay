@@ -8,9 +8,7 @@ class EventList extends Component {
     return (
       <div className="container">
         <h1 className='ui header'>Events to add to itinerary</h1>
-          <div className="list-group">
-            {events.map((event, i) => { return < Event key={i} event={event} />;
-            })}
+          <div className="list-group">{events.map((event, i) => { return < Event key={i} event={event} />})}
           </div>
       </div>
     );

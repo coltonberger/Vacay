@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ToolBar from './components/ToolBar'
 import EventList from './components/EventList'
+import Schedule from './components/Schedule'
 
 import './App.css';
 
@@ -22,6 +23,7 @@ class App extends Component {
 
         <ToolBar />
         <EventList events={events}/>
+        <Schedule />
       </div>
     );
   }

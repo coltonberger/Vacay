@@ -5,7 +5,7 @@ class ToolBar extends Component {
     return (
       <div class="ui menu">
         <div class="header item">
-          Vacay
+          Vaca
         </div>
         <a class="item">
           About Us
