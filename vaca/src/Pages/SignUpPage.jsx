@@ -3,11 +3,6 @@ import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui
 
 const LoginPage = (props) => (
   <div className='login-form'>
-    {/*
-      Heads up! The styles below are necessary for the correct render of this example.
-      You can do same with CSS, the main idea is that all the elements up to the `Grid`
-      below must have a height of 100%.
-    */}
     <style>{`
       body > div,
       body > div > div,
@@ -18,11 +13,13 @@ const LoginPage = (props) => (
     <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h2' color='teal' textAlign='center'>
-          <Image src='/logo.png' /> Log-in to your account
+           Signup for your account
         </Header>
         <Form size='large'>
           <Segment stacked>
-            <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' />
+            <Form.Input fluid icon='user' iconPosition='left' placeholder='First Name' />
+            <Form.Input fluid icon='user' iconPosition='left' placeholder='Last Name' />
+            <Form.Input fluid icon='envelope' iconPosition='left' placeholder='E-mail address' />
             <Form.Input
               fluid
               icon='lock'
@@ -32,12 +29,12 @@ const LoginPage = (props) => (
             />
 
             <Button color='teal' fluid size='large'>
-              Login
+              Create Account
             </Button>
           </Segment>
         </Form>
         <Message>
-          New to us? <a href='#'>Sign Up</a>
+          <a href='#'>Login</a>
         </Message>
       </Grid.Column>
     </Grid>

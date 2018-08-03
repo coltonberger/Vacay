@@ -18,7 +18,7 @@ class Event extends Component {
             </div>
             <div className='extra'>
               Price {event.eventPrice},
-              Time {event.eventTime}
+              Time {event.eventPrice}
             </div>
           </div>
         </div>
