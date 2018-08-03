@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 
 const LoginPage = (props) => (
@@ -13,7 +14,7 @@ const LoginPage = (props) => (
     <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h2' color='teal' textAlign='center'>
-          <Image src='/logo.png' /> Log-in to your account
+          Log-in to your account
         </Header>
         <Form size='large'>
           <Segment stacked>
@@ -32,7 +33,7 @@ const LoginPage = (props) => (
           </Segment>
         </Form>
         <Message>
-          New to us? <a href='#'>Sign Up</a>
+          New to us? <Link to='/SignUpPage'>Sign Up</Link>
         </Message>
       </Grid.Column>
     </Grid>

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+import LoginPage from './components/pages/LoginPage'
+import SignUpPage from './components/pages/SignUpPage'
 import ToolBar from './components/ToolBar'
 import EventList from './components/EventList'
 import Schedule from './components/Schedule'
@@ -27,7 +30,8 @@ class App extends Component {
 
     return (
       <div className="App">
-
+        <Route path="/" exact component={LoginPage} />
+        <Route path="/SignUpPage" exact component={SignUpPage} />
         <ToolBar />
         <EventList events={events}/>
         <Schedule />
