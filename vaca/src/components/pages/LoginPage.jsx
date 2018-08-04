@@ -72,7 +72,7 @@ class LoginPage extends Component {
                   placeholder="Enter your password"
                   name="password"
                   iconPosition='left'
-                  minlength="4"
+                  minLength="4"
                   value={this.state.password}
                   onChange={this.handleChange}
                   required

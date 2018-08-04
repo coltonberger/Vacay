@@ -11,8 +11,8 @@ class Event extends Component {
             <img src='/images/wireframe/image.png' />
           </div>
           <div className='content'>
-            <a className='header'>Event Name {event.eventName}</a>
-            <div className='meta'>Description {event.eventDescription}</div>
+            <a className='header'>{event.eventName}</a>
+            <div className='meta'>{event.eventDescription}</div>
             <div className='description'>
               <img src='/images/wireframe/short-paragraph.png' className='ui image' />
             </div>
