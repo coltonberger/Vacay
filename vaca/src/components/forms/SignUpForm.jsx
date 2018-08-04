@@ -21,15 +21,19 @@ class SignUpForm extends Component {
             </Header>
             <Form size='large'>
               <Segment stacked>
-                <Form.Input fluid icon='user' iconPosition='left' placeholder='First Name' />
-                <Form.Input fluid icon='user' iconPosition='left' placeholder='Last Name' />
-                <Form.Input fluid icon='envelope' iconPosition='left' placeholder='E-mail address' />
+                <Form.Input id='create_firstName' fluid icon='user' iconPosition='left' placeholder='First Name' required/>
+                <Form.Input id='create_lastName' fluid icon='user' iconPosition='left' placeholder='Last Name' required/>
+                <Form.Input id='create_email' fluid icon='envelope' iconPosition='left' placeholder='E-mail address'
+                            pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required/>
                 <Form.Input
+                  id='create_password'
                   fluid
                   icon='lock'
                   iconPosition='left'
                   placeholder='Password'
                   type='password'
+                  minlength="8"
+                  required
                 />
 
                 <Button color='teal' fluid size='large'>

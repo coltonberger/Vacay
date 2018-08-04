@@ -4,7 +4,7 @@ class ToolBar extends Component {
   render() {
     return (
       <div className="ui menu">
-        Nav Bar / need log out
+        Nav Bar / need log out / save schedule
       </div>
     );
   }

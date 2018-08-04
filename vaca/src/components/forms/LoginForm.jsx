@@ -19,13 +19,16 @@ class LoginForm extends Component {
             </Header>
             <Form size='large'>
               <Segment stacked>
-                <Form.Input fluid icon='envelope' iconPosition='left' placeholder='E-mail address' />
+                <Form.Input fluid icon='envelope' iconPosition='left' placeholder='E-mail address'
+                            pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required/>
                 <Form.Input
                   fluid
                   icon='lock'
                   iconPosition='left'
                   placeholder='Password'
                   type='password'
+                  minlength="4"
+                  required
                 />
 
                 <Button color='teal' fluid size='large'>
