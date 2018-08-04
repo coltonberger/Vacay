@@ -5,9 +5,7 @@ import EventList from '../DashBoardComponents/EventList'
 import Schedule from '../DashBoardComponents/Schedule'
 
 class DashBoardPage extends Component {
-  state = {
-    events: []
-  }
+  state = { events: [] }
 
 //Connect to backend to grab API
   componentDidMount = async () => {
@@ -21,14 +19,26 @@ class DashBoardPage extends Component {
     this.setState({events})
   }
 
+//FILTER CHANGES
+priceFilterChange = () => {
+    this.setState({
+      filterPrices: !this.state.filterPrices
+    })
+  }
+
   render() {
     const {events} = this.state;
 
     return (
       <div>
         <ToolBar />
-        <Filters />
-        <EventList events={events}/>
+        <Filters
+          priceFilterChange={this.priceFilterChange}
+        />
+        <EventList
+          events={this.state.events}
+          filterPrices={this.state.filterPrices}
+        />
         <Schedule />
       </div>
     );

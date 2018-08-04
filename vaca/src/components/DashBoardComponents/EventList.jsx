@@ -1,18 +1,14 @@
-import React, { Component } from 'react';
-import Event from './Event';
+import React, { Component } from 'react'
+import Event from './Event'
+//grabbing state and now have access to it. USE PROPS
 
-class EventList extends Component {
-  render() {
-    const { events } = this.props;
-
-    return (
-      <div className="container">
-        <h1 className='ui header'>Current Events in San Francisco</h1>
-          <div className="list-group">{events.map((event, i) => { return < Event key={i} event={event} />})}
-          </div>
-      </div>
-    );
-  }
+const EventList = props => {
+  //console.log("printing from eventlist", props.events)
+  return props.events.map(event =>
+    <Event
+    event={event}
+    />
+  )
 }
 
 export default EventList;
