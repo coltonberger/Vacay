@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-//import LoginForm from '../forms/LoginForm';
 import { Form, Button, Message, Grid, Header, Segment } from "semantic-ui-react";
 
 
@@ -36,22 +34,63 @@ class LoginPage extends Component {
   render() {
     return (
       <div className='login-form'>
-          <form onSubmit={this.handleSubmit} onSubmit={this.handleSubmit}>
-          <div className="FormField">
-              <label className="FormField__Label" htmlFor="email"></label>
-              <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email" value={this.state.email} onChange={this.handleChange} />
-            </div>
+        <style>{`
+          body > div,
+          body > div > div,
+          body > div > div > div.login-form {
+            height: 100%;
+          }
+        `}</style>
+        <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
+          <Grid.Column style={{ maxWidth: 450 }}>
+            <Header as='h2' color='teal' textAlign='center'>
+               Please Signin
+            </Header>
+            <Form size='large' onSubmit={this.handleSubmit} onSubmit={this.handleSubmit}>
+              <Segment stacked>
+                <label className="FormField__Label" htmlFor="email"></label>
+                <Form.Input
+                fluid icon='envelope'
+                iconPosition='left'
+                type="email"
+                id="email"
+                className="FormField__Input"
+                placeholder="Enter your email"
+                name="email"
+                pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                value={this.state.email}
+                onChange={this.handleChange}
+                required/>
 
-            <div className="FormField">
-              <label className="FormField__Label" htmlFor="password"></label>
-              <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleChange} />
-            </div>
+                <label className="FormField__Label" htmlFor="password"></label>
+                <Form.Input
+                  fluid
+                  icon='lock'
+                  type="password"
+                  id="password"
+                  className="FormField__Input"
+                  placeholder="Enter your password"
+                  name="password"
+                  iconPosition='left'
+                  minlength="4"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                  required
+                />
 
-            <div className="FormField">
-                <button className="FormField__Button mr-20">Sign In</button> <Link to="/SignUpPage" className="FormField__Link">Create an account</Link>
-            </div>
-          </form>
-        </div>
+                <Button color='teal' fluid size='large'>
+                  Login
+                </Button>
+              </Segment>
+            </Form>
+
+            <Message>
+              <a href='/SignUpPage'>New Here? Create Account</a>
+            </Message>
+
+          </Grid.Column>
+        </Grid>
+      </div>
     );
   }
 }

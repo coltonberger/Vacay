@@ -17,17 +17,35 @@ class LoginForm extends Component {
             <Header as='h2' color='teal' textAlign='center'>
                Please Signin
             </Header>
-            <Form size='large'>
-              <Segment stacked>
-                <Form.Input fluid icon='envelope' iconPosition='left' placeholder='E-mail address'
-                            pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required/>
+            <Form size='large' onSubmit={this.handleSubmit} onSubmit={this.handleSubmit}>
+              <Segment stacked></Segment>
+                <label className="FormField__Label" htmlFor="email"></label>
+                <Form.Input
+                fluid icon='envelope'
+                iconPosition='left'
+                type="email"
+                id="email"
+                className="FormField__Input"
+                placeholder="Enter your email"
+                name="email"
+                pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                value={this.state.email}
+                onChange={this.handleChange}
+                required/>
+                <Segment stacked></Segment>
+                <label className="FormField__Label" htmlFor="password"></label>
                 <Form.Input
                   fluid
                   icon='lock'
+                  type="password"
+                  id="password"
+                  className="FormField__Input"
+                  placeholder="Enter your password"
+                  name="password"
                   iconPosition='left'
-                  placeholder='Password'
-                  type='password'
-                  minlength="4"
+                  minLength="4"
+                  value={this.state.password}
+                  onChange={this.handleChange}
                   required
                 />
 
@@ -36,9 +54,11 @@ class LoginForm extends Component {
                 </Button>
               </Segment>
             </Form>
+
             <Message>
-              <a href='/SignUpPage'>New Here? Create Account</a>
+              <a href='/signup'>New Here? Create Account</a>
             </Message>
+            
           </Grid.Column>
         </Grid>
       </div>
