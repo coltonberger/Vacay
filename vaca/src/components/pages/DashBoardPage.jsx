@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ToolBar from '../DashBoardComponents/ToolBar'
+import Filters from '../DashBoardComponents/Filters'
 import EventList from '../DashBoardComponents/EventList'
 import Schedule from '../DashBoardComponents/Schedule'
 
@@ -26,6 +27,7 @@ class DashBoardPage extends Component {
     return (
       <div>
         <ToolBar />
+        <Filters />
         <EventList events={events}/>
         <Schedule />
       </div>

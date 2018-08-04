@@ -8,13 +8,13 @@ class Event extends Component {
       <div className='ui items'>
         <div className='item'>
           <div className='ui tiny image'>
-            <img src='/images/wireframe/image.png' />
+            <img src='' />
           </div>
           <div className='content'>
             <a className='header'>{event.eventName}</a>
             <div className='meta'>{event.eventDescription}</div>
             <div className='description'>
-              <img src='/images/wireframe/short-paragraph.png' className='ui image' />
+              <img src='' className='ui image' />
             </div>
             <div className='extra'>
               Price {event.eventPrice},
