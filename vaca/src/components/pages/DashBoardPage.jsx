@@ -44,19 +44,6 @@ selectPriceFilter = (item) => {
     filteredEvents = this.state.events.filter( event => event.eventPrice > 40);
   }
   this.setState({ filteredEvents, selectedPrice: value})
-
-  // priceRangeSelected = document.getElementsByTagName('select')
-  //   for(let i = 0; i < priceRangeSelected.length; i++){
-  //     priceRangeSelected[i].addEventListener('change', function() {
-  //       //get the selection id of the selected that was change - this returns the selection element
-  //       selectionID = this.id;
-  //       if(selectionID === "filterDepartment"){
-  //         //the value of the selected Price
-  //        var selectedPrice = document.getElementById("filterPrice").value
-  //        // iterate the price spans and check the text value agains the selected department value (or if the value is 'All' we dont need to check//
-  //       }
-  //     }
-  //   }
   }
 
   selectCityFilter = (item) => {

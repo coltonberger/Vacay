@@ -46,7 +46,7 @@ class SignUpPage extends Component {
         <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 450 }}>
             <Header as='h2' color='teal' textAlign='center'>
-               Signup for your account
+               Sign up for your account
             </Header>
             <Form size='large' onSubmit={this.handleSubmit}>
               <Segment stacked>
@@ -111,7 +111,7 @@ class SignUpPage extends Component {
               </Segment>
             </Form>
             <Message>
-              <a href='/'>Verify Account By Logging In</a>
+              Verify Account By <a href='/'>Logging In</a>
             </Message>
           </Grid.Column>
         </Grid>

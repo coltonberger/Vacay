@@ -44,7 +44,7 @@ class LoginPage extends Component {
         <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 450 }}>
             <Header as='h2' color='teal' textAlign='center'>
-               Please Signin
+               Please Sign In
             </Header>
             <Form size='large' onSubmit={this.handleSubmit} onSubmit={this.handleSubmit}>
               <Segment stacked>
@@ -85,7 +85,7 @@ class LoginPage extends Component {
             </Form>
 
             <Message>
-              <a href='/SignUpPage'>New Here? Create Account</a>
+              New Here? <a href='/signup'> Create Account</a>
             </Message>
 
           </Grid.Column>
