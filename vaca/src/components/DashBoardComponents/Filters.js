@@ -1,20 +1,19 @@
 import React from 'react';
 
-const Filters = (props) => {
+const Filters = ({ locations, selectCityFilter, selectPriceFilter }) => {
 
     return (
-      <div className="filters" on>
-      <select className="ui dropdown">
+      <div className="filters">
+      <select className="ui dropdown" id="filterLocation" onChange={selectCityFilter}>
         <option className="disabled">Choose City</option>
-        <option value="1">San Francisco</option>
-        <option value="0">New York</option>
-        <option value="0">Los Angeles</option>
+        {locations.map(location => <option value={location}>{location}</option>)}
       </select>
-      <select className="ui dropdown" onChange={() => props.priceFilterChange()}>
+      <select className="ui dropdown" id="filterPrice" onChange={selectPriceFilter}>
         <option className="disabled">Choose price/activity</option>
-        <option value="1"> less than $20</option>
-        <option value="0">$20-$40</option>
-        <option value="0">greater than $40</option>
+        <option value="">All</option>
+        <option value="1"> Less than $20</option>
+        <option value="2">$20-$40</option>
+        <option value="3">Greater than $40</option>
       </select>
       </div>
     );

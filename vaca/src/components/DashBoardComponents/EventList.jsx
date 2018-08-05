@@ -6,7 +6,10 @@ const EventList = props => {
   //console.log("printing from eventlist", props.events)
   return props.events.map(event =>
     <Event
-    event={event}
+      key= { event.id }
+      event= { event }
+      filterPrices= { props.filterPrices }
+      filterCities= { props.filterCities }
     />
   )
 }
