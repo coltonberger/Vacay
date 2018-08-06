@@ -6,8 +6,8 @@ class Event extends Component {
     return (
       <div className='ui items'>
         <div className='item'>
-          <div className='ui tiny image'>
-            <img src=''/>
+          <div className='ui medium image'>
+            <img src={this.props.event.eventImage}/>
           </div>
           <div className='content'>
             <a className='header'>{this.props.event.eventName}</a>
@@ -16,7 +16,7 @@ class Event extends Component {
               <img src='' className='ui image' />
             </div>
             <div className='extra'>
-              Price {this.props.event.eventPrice},
+              Price ${this.props.event.eventPrice},
               Location: {this.props.event.eventCity}
             </div>
           </div>
