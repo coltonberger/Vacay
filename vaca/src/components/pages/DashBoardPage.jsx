@@ -55,8 +55,16 @@ selectPriceFilter = (item) => {
 
   }
 
+
+
   render() {
     const {events, selected, selectedPrice, filteredEvents} = this.state;
+
+    const style = {
+      display: 'flex',
+      flexDirection: 'row',
+      flexWrap: 'wrap'
+    }
 
     return (
       <div>
@@ -66,11 +74,13 @@ selectPriceFilter = (item) => {
           selectCityFilter={this.selectCityFilter}
           locations={this.state.locations}
         />
+        <div style = { style }>
         <EventList
           events={(selected !=='') || (selectedPrice !=='') ? filteredEvents : events}
           filterPrices={this.state.filterPrices}
           filterCities={this.state.filterCities}
         />
+        </div>
         <Schedule />
       </div>
     );

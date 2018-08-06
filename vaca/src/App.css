@@ -10,6 +10,10 @@
     clear: both;
 }
 
+.log-out {
+  margin: 20px
+}
+
 .hovereffect {
   width: 100%;
   height: 100%;

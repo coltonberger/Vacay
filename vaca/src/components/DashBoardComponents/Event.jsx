@@ -5,8 +5,8 @@ class Event extends Component {
   render() {
 
     return (
-      <div class="ui grid">
-        <div class="four wide column">
+      <div class="">
+        <div class="">
             <div class="hovereffect">
                 <img class="img-responsive ui medium image" src={this.props.event.eventImage} />
                 <div class="overlay">

@@ -5,9 +5,6 @@ class Schedule extends Component {
   render() {
     return (
       <div className="ui bottom fixed menu">
-
-
-
       <table class="ui celled table">
         <thead>
         <thead>
