@@ -33,8 +33,8 @@ class DashBoardPage extends Component {
 //FILTER CHANGES
 selectPriceFilter = (item) => {
   const value = item.target.value
-  console.log('item.target.value', item.target.value);
-  console.info(this)
+  //console.log('item.target.value', item.target.value);
+  //console.info(this)
   let filteredEvents = []
   if(value === '1') {
     filteredEvents = this.state.events.filter( event => event.eventPrice < 20);
@@ -61,6 +61,7 @@ selectPriceFilter = (item) => {
     const {events, selected, selectedPrice, filteredEvents} = this.state;
 
     const style = {
+      margin: 50,
       display: 'flex',
       flexDirection: 'row',
       flexWrap: 'wrap'
