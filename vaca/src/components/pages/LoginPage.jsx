@@ -1,42 +1,40 @@
-import React, { Component } from 'react';
-import { Form, Button, Message, Grid, Header, Segment } from "semantic-ui-react";
-import { login } from "../../services/api";
-
-
+import React, { Component } from 'react'
+import { Form, Button, Message, Grid, Header, Segment } from 'semantic-ui-react'
+import { login } from '../../services/api'
 
 class LoginPage extends Component {
-  constructor() {
-    super();
-      this.state = {
-        email: '',
-        password: ''
-      };
+  constructor () {
+    super()
+    this.state = {
+      email: '',
+      password: ''
+    }
 
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange(e) {
-      let target = e.target;
-      let value = target.type === 'checkbox' ? target.checked : target.value;
-      let name = target.name;
+  handleChange (e) {
+    let target = e.target
+    let value = target.type === 'checkbox' ? target.checked : target.value
+    let name = target.name
 
-      this.setState({
-        [name]: value
-      });
+    this.setState({
+      [name]: value
+    })
   }
 
-  handleSubmit(e) {
-      e.preventDefault();
+  handleSubmit (e) {
+    e.preventDefault()
 
-      console.log('The form was submitted with the following data:');
-      console.log(this.state);
-      const { email, password } = this.state;
-      login( email, password )
-        .then(() => this.props.history.push('/dashboard'))
+    console.log('The form was submitted with the following data:')
+    console.log(this.state)
+    const { email, password } = this.state
+    login(email, password)
+      .then(() => this.props.history.push('/dashboard'))
   }
 
-  render() {
+  render () {
     return (
       <div className='login-form'>
         <style>{`
@@ -53,31 +51,31 @@ class LoginPage extends Component {
             </Header>
             <Form size='large' onSubmit={this.handleSubmit} onSubmit={this.handleSubmit}>
               <Segment stacked>
-                <label className="FormField__Label" htmlFor="email"></label>
+                <label className='FormField__Label' htmlFor='email' />
                 <Form.Input
-                fluid icon='envelope'
-                iconPosition='left'
-                type="email"
-                id="email"
-                className="FormField__Input"
-                placeholder="Enter your email"
-                name="email"
-                pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
-                value={this.state.email}
-                onChange={this.handleChange}
-                required/>
+                  fluid icon='envelope'
+                  iconPosition='left'
+                  type='email'
+                  id='email'
+                  className='FormField__Input'
+                  placeholder='Enter your email'
+                  name='email'
+                  pattern='^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$'
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                  required />
 
-                <label className="FormField__Label" htmlFor="password"></label>
+                <label className='FormField__Label' htmlFor='password' />
                 <Form.Input
                   fluid
                   icon='lock'
-                  type="password"
-                  id="password"
-                  className="FormField__Input"
-                  placeholder="Enter your password"
-                  name="password"
+                  type='password'
+                  id='password'
+                  className='FormField__Input'
+                  placeholder='Enter your password'
+                  name='password'
                   iconPosition='left'
-                  minLength="4"
+                  minLength='4'
                   value={this.state.password}
                   onChange={this.handleChange}
                   required
@@ -96,8 +94,8 @@ class LoginPage extends Component {
           </Grid.Column>
         </Grid>
       </div>
-    );
+    )
   }
 }
 
-export default LoginPage;
+export default LoginPage

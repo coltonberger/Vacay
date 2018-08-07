@@ -1,47 +1,44 @@
-import React, { Component } from 'react';
-import { Form, Button, Message, Grid, Header, Segment } from "semantic-ui-react";
-import { signup } from "../../services/api";
-
+import React, { Component } from 'react'
+import { Form, Button, Message, Grid, Header, Segment } from 'semantic-ui-react'
+import { signup } from '../../services/api'
 
 class SignUpPage extends Component {
-    constructor() {
-        super();
+  constructor () {
+    super()
 
-        this.state = {
-            firstName: '',
-            lastName: '',
-            email: '',
-            password: '',
-        };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: ''
     }
 
-    handleChange(e) {
-        let target = e.target;
-        let value = target.type === 'checkbox' ? target.checked : target.value;
-        let name = target.name;
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
 
-        this.setState({
-          [name]: value
-        });
-    }
+  handleChange (e) {
+    let target = e.target
+    let value = target.type === 'checkbox' ? target.checked : target.value
+    let name = target.name
 
-    handleSubmit(e) {
-        e.preventDefault();
+    this.setState({
+      [name]: value
+    })
+  }
 
-        //console.log('The form was submitted with the following data as state:');
-        //console.log(this.state);
-        const { firstName, lastName, email, password } = this.state;
-        signup({ firstName, lastName, email, password })
-          .then(data => console.log('response data:', data));
+  handleSubmit (e) {
+    e.preventDefault()
 
+    // console.log('The form was submitted with the following data as state:');
+    // console.log(this.state);
+    const { firstName, lastName, email, password } = this.state
+    signup({ firstName, lastName, email, password })
+      .then(data => console.log('response data:', data))
+  }
 
-    }
-
-    render() {
-      return (
+  render () {
+    return (
       <div className='login-form'>
         <style>{`
           body > div,
@@ -58,59 +55,59 @@ class SignUpPage extends Component {
             <Form size='large' onSubmit={this.handleSubmit}>
               <Segment stacked>
 
-                <label className="FormField__Label" htmlFor="name"></label>
+                <label className='FormField__Label' htmlFor='name' />
                 <Form.Input
                   fluid icon='user'
                   iconPosition='left'
                   placeholder='First Name'
-                  type="text"
-                  id="firstName"
-                  className="FormField__Input"
-                  name="firstName"
+                  type='text'
+                  id='firstName'
+                  className='FormField__Input'
+                  name='firstName'
                   value={this.state.firstName}
                   onChange={this.handleChange}
-                  required/>
+                  required />
 
-                <label className="FormField__Label" htmlFor="name"></label>
+                <label className='FormField__Label' htmlFor='name' />
                 <Form.Input
                   fluid icon='user'
                   iconPosition='left'
-                  type="text" id="lastName"
-                  className="FormField__Input"
-                  placeholder="Last Name"
-                  name="lastName"
+                  type='text' id='lastName'
+                  className='FormField__Input'
+                  placeholder='Last Name'
+                  name='lastName'
                   value={this.state.lastName}
                   onChange={this.handleChange}
-                  required/>
+                  required />
 
-                <label className="FormField__Label" htmlFor="email"></label>
+                <label className='FormField__Label' htmlFor='email' />
                 <Form.Input
                   fluid icon='envelope'
                   iconPosition='left'
-                  pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
-                  type="email"
-                  id="email"
-                  className="FormField__Input"
-                  placeholder="E-mail address"
-                  name="email"
+                  pattern='^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$'
+                  type='email'
+                  id='email'
+                  className='FormField__Input'
+                  placeholder='E-mail address'
+                  name='email'
                   value={this.state.email}
                   onChange={this.handleChange}
-                  required/>
+                  required />
 
-                <label className="FormField__Label" htmlFor="password"></label>
+                <label className='FormField__Label' htmlFor='password' />
                 <Form.Input
                   fluid
                   icon='lock'
                   iconPosition='left'
                   type='password'
-                  minLength="4"
-                  type="password"
-                  id="password"
-                  className="FormField__Input"
-                  placeholder="Password"
-                  name="password" value={this.state.password}
+                  minLength='4'
+                  type='password'
+                  id='password'
+                  className='FormField__Input'
+                  placeholder='Password'
+                  name='password' value={this.state.password}
                   onChange={this.handleChange}
-                  required/>
+                  required />
 
                 <Button color='teal' fluid size='large'>
                   Create Account
@@ -123,8 +120,8 @@ class SignUpPage extends Component {
           </Grid.Column>
         </Grid>
       </div>
-        );
-      }
-    }
+    )
+  }
+}
 
-export default SignUpPage;
+export default SignUpPage

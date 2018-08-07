@@ -1,30 +1,30 @@
-import React, { Component } from 'react';
-import '../../App.css';
+import React, { Component } from 'react'
+import '../../App.css'
 
 class Schedule extends Component {
-  render() {
+  render () {
     return (
-      <div className="ui bottom fixed menu">
-      <table class="ui celled table">
-        <thead>
-        <thead>
-          <tr><th>
+      <div className='ui bottom fixed menu'>
+        <table class='ui celled table'>
+          <thead>
+            <thead>
+              <tr><th>
             Your Schedule
-          </th>
-        </tr></thead>
-          <tr>
-            <th>Schedule</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>place event here</td>
-          </tr>
-        </tbody>
-      </table>
+              </th>
+              </tr></thead>
+            <tr>
+              <th>Schedule</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>place event here</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    );
+    )
   }
 }
 
-export default Schedule;
+export default Schedule
