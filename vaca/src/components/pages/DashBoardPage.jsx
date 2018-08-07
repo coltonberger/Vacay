@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import ToolBar from '../DashBoardComponents/ToolBar'
 import Filters from '../DashBoardComponents/Filters'
-import EventList from '../DashBoardComponents/EventList'
-import Schedule from '../DashBoardComponents/Schedule'
+import EventList from '../DashBoardComponents/EventList';
+import Schedule from '../DashBoardComponents/Schedule';
+import Knight from '../DragAndDrop/Knight';
+import Square from '../DragAndDrop/Square';
+import Board from '../DragAndDrop/Board';
 
 class DashBoardPage extends Component {
   state = {
@@ -69,7 +72,9 @@ selectPriceFilter = (item) => {
 
     return (
       <div>
-        <ToolBar history={this.props.history}/>
+        <ToolBar
+          history={this.props.history}
+        />
 
         <Filters
           selectPriceFilter={this.selectPriceFilter}
@@ -85,7 +90,8 @@ selectPriceFilter = (item) => {
         />
         </div>
 
-        <Schedule />
+        <Schedule/>
+
       </div>
     );
   }
