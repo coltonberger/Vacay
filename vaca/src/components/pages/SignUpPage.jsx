@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Button, Message, Grid, Header, Segment } from "semantic-ui-react";
+import { signup } from "../../services/api";
+
 
 class SignUpPage extends Component {
     constructor() {
@@ -29,8 +31,13 @@ class SignUpPage extends Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        console.log('The form was submitted with the following data as state:');
-        console.log(this.state);
+        //console.log('The form was submitted with the following data as state:');
+        //console.log(this.state);
+        const { firstName, lastName, email, password } = this.state;
+        signup({ firstName, lastName, email, password })
+          .then(data => console.log('response data:', data));
+
+
     }
 
     render() {

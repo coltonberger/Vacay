@@ -69,12 +69,14 @@ selectPriceFilter = (item) => {
 
     return (
       <div>
-        <ToolBar />
+        <ToolBar history={this.props.history}/>
+
         <Filters
           selectPriceFilter={this.selectPriceFilter}
           selectCityFilter={this.selectCityFilter}
           locations={this.state.locations}
         />
+
         <div style = { style }>
         <EventList
           events={(selected !=='') || (selectedPrice !=='') ? filteredEvents : events}
@@ -82,6 +84,7 @@ selectPriceFilter = (item) => {
           filterCities={this.state.filterCities}
         />
         </div>
+
         <Schedule />
       </div>
     );

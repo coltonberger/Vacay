@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Button, Message, Grid, Header, Segment } from "semantic-ui-react";
+import { login } from "../../services/api";
+
 
 
 class LoginPage extends Component {
@@ -29,6 +31,9 @@ class LoginPage extends Component {
 
       console.log('The form was submitted with the following data:');
       console.log(this.state);
+      const { email, password } = this.state;
+      login( email, password )
+        .then(() => this.props.history.push('/dashboard'))
   }
 
   render() {

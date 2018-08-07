@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import '../../App.css';
+import { logout } from '../../services/api';
 
 class ToolBar extends Component {
+  signOut = () => {
+    logout();
+    this.props.history.push('/')
+  }
   render() {
     return (
       <div class="ui secondary  menu">
@@ -18,7 +23,7 @@ class ToolBar extends Component {
               <i class="search link icon"></i>
             </div>
           </div>
-          <a class="ui item" href='/'>
+          <a class="ui item" onClick={this.signOut}>
             Logout
           </a>
         </div>
