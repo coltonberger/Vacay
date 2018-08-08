@@ -18,6 +18,7 @@ class Schedule extends Component {
                 </td>
               ))}
               <td><input type="button" value="clear" onClick={() => this.props.deleteAllEvents()}/></td>
+              <i ></i>
               <td><input type="button" value="save" onClick={this.props.saveSchedule}/></td>
             </tr>
           </tbody>
