@@ -9,21 +9,21 @@ class ToolBar extends Component {
   }
   render() {
     return (
-      <div class="ui secondary  menu">
-        <a class="active item">
+      <div className="ui secondary  menu">
+        <a className="active item">
           Home
         </a>
-        <a class="item">
+        <a className="item">
           Saved Schedules
         </a>
-        <div class="right menu">
-          <div class="item">
-            <div class="ui icon input">
+        <div className="right menu">
+          <div className="item">
+            <div className="ui icon input">
               <input type="text" placeholder="Search..."/>
-              <i class="search link icon"></i>
+              <i className="search link icon"></i>
             </div>
           </div>
-          <a class="ui item" onClick={this.signOut}>
+          <a className="ui item" onClick={this.signOut}>
             Logout
           </a>
         </div>

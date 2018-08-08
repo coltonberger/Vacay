@@ -12,12 +12,16 @@ class DashBoardPage extends Component {
     locations: [],
     selected: '',
     selectedPrice: '',
-    scheduledEvents: ['']
+    scheduledEvents: []
   }
 
 //Connect to backend to grab API
   componentDidMount = async () => {
     await this.getDataFromAPI()
+    const savedEvents = localStorage.getItem('schedule');
+    if(savedEvents) {
+      this.setState({scheduledEvents: JSON.parse(savedEvents)})
+    }
   }
 // loading messages from the server
   getDataFromAPI = async () => {
@@ -61,6 +65,25 @@ selectPriceFilter = (item) => {
     this.setState({ scheduledEvents: [...this.state.scheduledEvents, event]})
   }
 
+  deleteSingleEvent = event => {
+    console.log('delete',event)
+    this.setState({
+      scheduledEvents:this.state.scheduledEvents.filter((item, index) => {
+        return (index !== event);
+      })
+    })
+  }
+
+  deleteAllEvents = event => {
+    console.log('clear', event)
+    this.setState({scheduledEvents: []})
+  }
+
+  saveSchedule = () => {
+    localStorage.setItem('schedule', JSON.stringify(this.state.scheduledEvents))
+  }
+
+
 
 
   render() {
@@ -96,7 +119,12 @@ selectPriceFilter = (item) => {
         />
         </div>
 
-        <Schedule scheduledEvents={this.state.scheduledEvents}/>
+        <Schedule
+          scheduledEvents={this.state.scheduledEvents}
+          deleteSingleEvent={this.deleteSingleEvent}
+          deleteAllEvents={this.deleteAllEvents}
+          saveSchedule={this.saveSchedule}
+          />
 
       </div>
     );

@@ -7,7 +7,7 @@ const Filters = ({ locations, selectCityFilter, selectPriceFilter }) => {
       <h5>Customize Trip</h5>
       <select className='ui dropdown' id='filterLocation' onChange={selectCityFilter}>
         <option className='disabled'>Choose City</option>
-        {locations.map(location => <option value={location}>{location}</option>)}
+        {locations.map(location => <option key={location} value={location}>{location}</option>)}
       </select>
 
       <select className='ui dropdown' id='filterPrice' onChange={selectPriceFilter}>

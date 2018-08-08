@@ -4,17 +4,17 @@ import '../../App.css'
 class Event extends Component {
   render () {
     return (
-      <div class=''>
-        <div class=''>
-          <div class='hovereffect'>
-            <img class='img-responsive ui medium image' src={this.props.event.eventImage} />
-            <div class='overlay'>
+      <div className=''>
+        <div className=''>
+          <div className='hovereffect'>
+            <img className='img-responsive ui medium image' src={this.props.event.eventImage} />
+            <div className='overlay'>
               <h2>{this.props.event.eventName}</h2>
-              <a class='info' href={this.props.event.eventWebsite}>
+              <a className='info' href={this.props.event.eventWebsite}>
                    Discover
               </a>
-              <button class='info' onClick={() => this.props.scheduleEvent(this.props.event.eventName)}>
-                   Schedule
+              <button className='info' onClick={() => this.props.scheduleEvent(this.props.event.eventName)}>
+                   Add
               </button>
             </div>
           </div>
