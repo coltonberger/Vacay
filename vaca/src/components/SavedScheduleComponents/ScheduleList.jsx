@@ -4,8 +4,11 @@ import Schedule from './Schedule'
 
 const ScheduleList = props => {
   // console.log("printing from eventlist", props.events)
-  return (
-    <Schedule/>
+  return props.schedules.map(schedule =>
+    <Schedule
+      key={schedule.id}
+      schedule={schedule}
+    />
   )
 }
 

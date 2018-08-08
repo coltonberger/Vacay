@@ -7,10 +7,10 @@ class Schedule extends Component {
       <div className="ui divided items">
         <div className="item">
           <div className="ui tiny image">
-            <img src="/images/wireframe/image.png"/>
+            <img src={this.props.schedule.eventImage}/>
           </div>
           <div className="middle aligned content">
-            Content A
+            {this.props.schedule.eventName}
           </div>
         </div>
       </div>
