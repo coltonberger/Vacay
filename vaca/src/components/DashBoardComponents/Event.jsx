@@ -5,18 +5,16 @@ class Event extends Component {
   render () {
     return (
       <div className=''>
-        <div className=''>
-          <div className='hovereffect'>
-            <img className='img-responsive ui medium image' src={this.props.event.eventImage} />
-            <div className='overlay'>
-              <h2>{this.props.event.eventName}</h2>
-              <a className='info' href={this.props.event.eventWebsite}>
-                   Discover
-              </a>
-              <button className='info' onClick={() => this.props.scheduleEvent(this.props.event.eventName)}>
-                   Add
-              </button>
-            </div>
+        <div className='hovereffect'>
+          <img className='img-responsive ui medium image' src={this.props.event.eventImage} />
+          <div className='overlay'>
+            <h2>{this.props.event.eventName}</h2>
+            <a className='info' href={this.props.event.eventWebsite}>
+                 Discover
+            </a>
+            <button className='info' onClick={() => this.props.scheduleEvent(this.props.event.eventName)}>
+                 Add
+            </button>
           </div>
         </div>
       </div>

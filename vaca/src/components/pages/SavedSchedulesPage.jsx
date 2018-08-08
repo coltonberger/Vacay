@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import ToolBar from '../DashBoardComponents/ToolBar'
+import ToolBar from '../SavedScheduleComponents/ToolBar'
+import ScheduleList from '../SavedScheduleComponents/ScheduleList'
+
 
 
 class SavedSchedulesPage extends Component {
@@ -9,7 +11,7 @@ class SavedSchedulesPage extends Component {
     return (
       <div>
         <ToolBar/>
-
+        <ScheduleList/>
       </div>
     );
   }
