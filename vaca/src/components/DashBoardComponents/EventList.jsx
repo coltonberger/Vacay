@@ -10,6 +10,7 @@ const EventList = props => {
       event={event}
       filterPrices={props.filterPrices}
       filterCities={props.filterCities}
+      scheduleEvent={props.scheduleEvent}
     />
   )
 }

@@ -11,7 +11,8 @@ class DashBoardPage extends Component {
     filteredEvents: [],
     locations: [],
     selected: '',
-    selectedPrice: ''
+    selectedPrice: '',
+    scheduledEvents: ['']
   }
 
 //Connect to backend to grab API
@@ -56,6 +57,10 @@ selectPriceFilter = (item) => {
 
   }
 
+  scheduleEvent = event => {
+    this.setState({ scheduledEvents: [...this.state.scheduledEvents, event]})
+  }
+
 
 
   render() {
@@ -85,10 +90,13 @@ selectPriceFilter = (item) => {
           events={(selected !=='') || (selectedPrice !=='') ? filteredEvents : events}
           filterPrices={this.state.filterPrices}
           filterCities={this.state.filterCities}
+          scheduleEvent={this.scheduleEvent}
+
+
         />
         </div>
 
-        <Schedule/>
+        <Schedule scheduledEvents={this.state.scheduledEvents}/>
 
       </div>
     );

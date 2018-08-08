@@ -11,9 +11,11 @@ class Event extends Component {
             <div class='overlay'>
               <h2>{this.props.event.eventName}</h2>
               <a class='info' href={this.props.event.eventWebsite}>
-                   Find out more <br />
-                   Starting at ${this.props.event.eventPrice}
+                   Discover
               </a>
+              <button class='info' onClick={() => this.props.scheduleEvent(this.props.event.eventName)}>
+                   Schedule
+              </button>
             </div>
           </div>
         </div>
