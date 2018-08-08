@@ -10,10 +10,10 @@ class ToolBar extends Component {
   render() {
     return (
       <div className="ui secondary  menu">
-        <a className="active item">
+        <a className="item" href='/dashboard'>
           Home
         </a>
-        <a className="item">
+        <a className="item" href='/savedschedules'>
           Saved Schedules
         </a>
         <div className="right menu">
