@@ -11,7 +11,7 @@ class Schedule extends Component {
             <tr>
               {this.props.scheduledEvents.map((event, index) => (
                 <td key={index}>
-                {event} <input type="button" value="remove" onClick={(event) => this.props.deleteSingleEvent(index)}/>
+                {event.eventName} <input type="button" value="remove" onClick={(event) => this.props.deleteSingleEvent(index)}/>
                 </td>
               ))}
             </tr>

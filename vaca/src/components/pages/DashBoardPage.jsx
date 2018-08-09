@@ -3,6 +3,7 @@ import ToolBar from '../DashBoardComponents/ToolBar'
 import Filters from '../DashBoardComponents/Filters'
 import EventList from '../DashBoardComponents/EventList';
 import Schedule from '../DashBoardComponents/Schedule';
+import { createSchedule } from '../../services/api'
 
 
 class DashBoardPage extends Component {
@@ -20,10 +21,11 @@ class DashBoardPage extends Component {
     await this.getDataFromAPI()
 
     //for localStorage
-    const savedEvents = localStorage.getItem('schedule');
-    if(savedEvents) {
-      this.setState({scheduledEvents: JSON.parse(savedEvents)})
-    }
+    window.sessionStorage.removeItem('schedule')
+    // const savedEvents = localStorage.getItem('schedule');
+    // if(savedEvents) {
+    //   this.setState({scheduledEvents: JSON.parse(savedEvents)})
+    // }
   }
 // loading messages from the server
   getDataFromAPI = async () => {
@@ -41,7 +43,7 @@ class DashBoardPage extends Component {
 //FILTER CHANGES
 selectPriceFilter = (item) => {
   const value = item.target.value
-  //console.log('item.target.value', item.target.value);
+  console.log('item.target.value', item.target.value);
   //console.info(this)
   let filteredEvents = []
   if(value === '1') {
@@ -51,16 +53,24 @@ selectPriceFilter = (item) => {
   } else if (value === '3') {
     filteredEvents = this.state.events.filter( event => event.eventPrice > 40);
   }
-  this.setState({ filteredEvents, selectedPrice: value})
+    this.setState({ filteredEvents, selectedPrice: value})
   }
 
   selectCityFilter = (item) => {
-    console.log('item.target.value', item.target.value);
-    const selected = item.target.value;
-    console.info(this);
-    const filteredEvents = this.state.events.filter( event => event.eventCity === selected);
-    this.setState({selected, filteredEvents})
-
+    // console.log('item.target.value', item.target.value);
+    // const selected = item.target.value;
+    //
+    // let filteredCities = []
+    // if(value === '1') {
+    //   filteredEvents = this.state.events.filter( event => event.eventCity === 1);
+    // } else if (value === '2') {
+    //   filteredEvents = this.state.events.filter( event => event.eventCity === 2);
+    // } else if (value === '3') {
+    //   filteredEvents = this.state.events.filter( event => event.eventCity === 3);
+    // }
+    // console.info(this);
+    //const filteredEvents = this.state.events.filter( event => event.eventCity === selected);
+    //this.setState({selected: value, filteredEvents})
   }
 
   scheduleEvent = event => {
@@ -82,7 +92,9 @@ selectPriceFilter = (item) => {
   }
 
   saveSchedule = () => {
-    localStorage.setItem('schedule', JSON.stringify(this.state.scheduledEvents))
+    sessionStorage.setItem('schedule', JSON.stringify(this.state.scheduledEvents))
+    createSchedule(this.state.scheduledEvents)
+      .then(results => console.log(results))
     // let scheduleArray = localStorage.getItem('schedule')
     // console.log(scheduleArray, 'scheduleItems')
     // scheduleArray.forEach(event =>{

@@ -1,5 +1,5 @@
 const API_ROOT = 'http://localhost:3000'
-const token = localStorage.getItem('token')
+const token = JSON.parse(sessionStorage.getItem('user')) ? JSON.parse(sessionStorage.getItem('user')).token : '';
 
 const headers = {
   'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ export const login = (email, password) => {
     body: JSON.stringify({ email, password })
   }).then(res => res.json())
     .then(({ token }) => {
-      localStorage.setItem('token', token)
+      window.sessionStorage.setItem('token', token)
       console.log('token', token)
     })
     .catch(err => console.log(err))
@@ -27,21 +27,27 @@ export const signup = ({ firstName, lastName, email, password }) => {
     body: JSON.stringify({ firstName, lastName, email, password })
   }).then(res => res.json())
     .then(({ data, token }) => {
-      localStorage.setItem('token', token)
+      console.log('token', token);
+      //window.sessionStorage.setItem('token', token)
+      window.sessionStorage.setItem('user', JSON.stringify({ data, token }))
       return data
     })
     .catch(err => console.log(err))
 }
 
 export const logout = () => {
-  localStorage.removeItem('token')
+  window.sessionStorage.removeItem('token')
 }
 
-export const saveSchedule = () => {
+export const createSchedule = (EventList) => {
+  const user = JSON.parse(sessionStorage.getItem('user')) ? JSON.parse(sessionStorage.getItem('user')).data : null;
+  if(!user) {
+    return false;
+  }
   return fetch(`${API_ROOT}/schedules/`, {
     method: 'POST',
     headers: headers,
-    body: JSON.stringify()
+    body: JSON.stringify({events: EventList, userId:user.id})
   })
   .catch(err => console.log(err))
 }

@@ -7,7 +7,11 @@ const Filters = ({ locations, selectCityFilter, selectPriceFilter }) => {
       <h5>Create your Schedule</h5>
       <select className="ui dropdown" id='filterLocation' onChange={selectCityFilter}>
         <option className='disabled'>Choose City</option>
-        {locations.map(location => <option key={location} value={location}>{location}</option>)}
+          {/*{locations.map(location => <option key={location} value={location}>{location}</option>)}*/}
+          <option value=''>All</option>
+          <option value='1'>San Francisco</option>
+          <option value='2'>New York</option>
+          <option value='3'>Los Angeles</option>
       </select>
 
       <select className='ui dropdown' id='filterPrice' onChange={selectPriceFilter}>

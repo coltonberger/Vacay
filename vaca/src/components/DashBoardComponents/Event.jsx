@@ -12,7 +12,7 @@ class Event extends Component {
             <a className='info' href={this.props.event.eventWebsite}>
                  Discover
             </a>
-            <a className='info' onClick={() => this.props.scheduleEvent(this.props.event.eventName)}>
+            <a className='info' onClick={() => this.props.scheduleEvent(this.props.event)}>
                  Add
             </a>
           </div>
