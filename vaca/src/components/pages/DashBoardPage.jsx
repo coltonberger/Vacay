@@ -83,6 +83,12 @@ selectPriceFilter = (item) => {
 
   saveSchedule = () => {
     localStorage.setItem('schedule', JSON.stringify(this.state.scheduledEvents))
+    // let scheduleArray = localStorage.getItem('schedule')
+    // console.log(scheduleArray, 'scheduleItems')
+    // scheduleArray.forEach(event =>{
+    //   postToBackend(event)
+    // })
+
   }
 
 

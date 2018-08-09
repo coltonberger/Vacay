@@ -36,3 +36,12 @@ export const signup = ({ firstName, lastName, email, password }) => {
 export const logout = () => {
   localStorage.removeItem('token')
 }
+
+export const saveSchedule = () => {
+  return fetch(`${API_ROOT}/schedules/`, {
+    method: 'POST',
+    headers: headers,
+    body: JSON.stringify()
+  })
+  .catch(err => console.log(err))
+}
