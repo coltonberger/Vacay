@@ -6,7 +6,7 @@ import ScheduleList from '../SavedScheduleComponents/ScheduleList'
 
 class SavedSchedulesPage extends Component {
   state = {
-    schedules: []
+    savedEvents: []
   }
   //Connect to backend to grab API
     componentDidMount = async () => {
@@ -15,11 +15,11 @@ class SavedSchedulesPage extends Component {
   // loading messages from the server
     getDataFromAPI = async () => {
   // fetch messagesJson
-      const messagesJson = await fetch('http://localhost:3000/schedules')
-      let schedules = await messagesJson.json()
+      const messagesJson = await fetch('http://localhost:3000/savedEvents')
+      let savedEvents = await messagesJson.json()
 
       this.setState({
-        schedules,
+        savedEvents,
       })
     }
 
@@ -29,7 +29,7 @@ class SavedSchedulesPage extends Component {
       <div>
         <ToolBar/>
         <ScheduleList
-          schedules={this.state.schedules}
+          savedEvents={this.state.savedEvents}
         />
       </div>
     );

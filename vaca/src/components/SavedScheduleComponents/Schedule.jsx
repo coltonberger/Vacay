@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../../App.css'
+//import '../../App.css'
 
 class Schedule extends Component {
   render () {
@@ -7,7 +7,7 @@ class Schedule extends Component {
       <div className="ui divided items">
         <div className="item">
           <div className="middle aligned content">
-            {this.props.schedule.eventName}
+            {this.props.savedEvent.events_id}
           </div>
         </div>
       </div>

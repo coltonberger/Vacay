@@ -4,10 +4,10 @@ import Schedule from './Schedule'
 
 const ScheduleList = props => {
   // console.log("printing from eventlist", props.events)
-  return props.schedules.map(schedule =>
+  return props.savedEvents.map(savedEvent =>
     <Schedule
-      key={schedule.id}
-      schedule={schedule}
+      key={savedEvent.id}
+      savedEvent={savedEvent}
     />
   )
 }
