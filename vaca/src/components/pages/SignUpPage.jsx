@@ -42,7 +42,7 @@ class SignUpPage extends Component {
     return (
       <div className= 'container'>
         <div className='login-form'>
-          <img id='postcard2' src="http://dancingmood.net/wp-content/uploads/2017/05/Free-Blank-Postcard-Template-For-Word-2.jpg" alt="post card one" />
+          <img id='postcard2' src="https://olddesignshop.com/wp-content/uploads/2017/10/Vintage-Grunge-Postcard-Back-Old-Design-Shop.jpg" />
           <style>{`
             body > div,
             body > div > div,
