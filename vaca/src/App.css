@@ -57,6 +57,21 @@ body {
   width: 800px
 }
 
+#header {
+  color: #34BDB3;
+  text-align: center;
+  font-size: 25px;
+}
+
+.filteredOptions {
+  text-align: center;
+  margin-top: 40px
+}
+
+.slogan {
+  color: #34BDB3;
+}
+
 .log-out {
   margin: 20px
 }
