@@ -19,6 +19,44 @@ body {
     background-color: #f2f3f4;
 }
 
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 35px;
+  right: 366px;
+}
+
+.bottom-right2 {
+  position: absolute;
+  bottom: 20px;
+  right: 366px;
+}
+
+.top-left {
+    position: absolute;
+    font-size: 30px;
+    top: 250px;
+    left: 320px;
+    color: #34BDB3;
+}
+
+#postcard1 {
+  opacity: .5;
+  height: 560px;
+  width: 800px
+}
+
+#postcard2 {
+  opacity: .5;
+  height: 660px;
+  width: 800px
+}
+
 .log-out {
   margin: 20px
 }
