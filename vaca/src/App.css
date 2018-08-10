@@ -10,6 +10,15 @@
     clear: both;
 }
 
+.slogan {
+    text-align: center;
+    margin-top: -15px
+}
+
+body {
+    background-color: #f2f3f4;
+}
+
 .log-out {
   margin: 20px
 }
