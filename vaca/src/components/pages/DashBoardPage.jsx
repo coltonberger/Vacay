@@ -44,7 +44,7 @@ class DashBoardPage extends Component {
 selectPriceFilter = (item) => {
   const value = item.target.value
   console.log('item.target.value', item.target.value);
-  //console.info(this)
+  console.info(this)
   let filteredEvents = []
   if(value === '1') {
     filteredEvents = this.state.events.filter( event => event.eventPrice < 20);
@@ -53,32 +53,21 @@ selectPriceFilter = (item) => {
   } else if (value === '3') {
     filteredEvents = this.state.events.filter( event => event.eventPrice > 40);
   }
-    this.setState({ filteredEvents, selectedPrice: value})
+  this.setState({ filteredEvents, selectedPrice: value})
   }
-
-  selectCityFilter = (item) => {
-    // console.log('item.target.value', item.target.value);
-    // const selected = item.target.value;
-    //
-    // let filteredCities = []
-    // if(value === '1') {
-    //   filteredEvents = this.state.events.filter( event => event.eventCity === 1);
-    // } else if (value === '2') {
-    //   filteredEvents = this.state.events.filter( event => event.eventCity === 2);
-    // } else if (value === '3') {
-    //   filteredEvents = this.state.events.filter( event => event.eventCity === 3);
-    // }
-    // console.info(this);
-    //const filteredEvents = this.state.events.filter( event => event.eventCity === selected);
-    //this.setState({selected: value, filteredEvents})
-  }
+   selectCityFilter = (item) => {
+    //console.log('item.target.value', item.target.value);
+    const selected = item.target.value;
+    //console.info(this);
+    const filteredEvents = this.state.events.filter( event => event.eventCity === selected);
+    this.setState({selected, filteredEvents})
+   }
 
   scheduleEvent = event => {
     this.setState({ scheduledEvents: [...this.state.scheduledEvents, event]})
   }
 
   deleteSingleEvent = event => {
-    //console.log('delete',event)
     this.setState({
       scheduledEvents:this.state.scheduledEvents.filter((item, index) => {
         return (index !== event);
@@ -87,7 +76,6 @@ selectPriceFilter = (item) => {
   }
 
   deleteAllEvents = event => {
-    //console.log('clear', event)
     this.setState({scheduledEvents: []})
   }
 
@@ -95,12 +83,6 @@ selectPriceFilter = (item) => {
     sessionStorage.setItem('schedule', JSON.stringify(this.state.scheduledEvents))
     createSchedule(this.state.scheduledEvents)
       .then(results => console.log(results))
-    // let scheduleArray = localStorage.getItem('schedule')
-    // console.log(scheduleArray, 'scheduleItems')
-    // scheduleArray.forEach(event =>{
-    //   postToBackend(event)
-    // })
-
   }
 
 
