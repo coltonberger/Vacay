@@ -12,12 +12,17 @@ class SavedSchedulesPage extends Component {
       await this.getDataFromAPI()
     }
     getDataFromAPI = async () => {
-      const messagesJson = await fetch('http://localhost:3000/savedEvents')
-      let savedEvents = await messagesJson.json()
+      console.log("sessionStorage.getItem('user'): ", sessionStorage.getItem('user'));
+      if (sessionStorage.getItem('user')) {
+        const userId= JSON.parse(sessionStorage.getItem('user')).data.id
+        const messagesJson = await fetch(`http://localhost:3000/schedules/${userId}`)
+        let savedEvents = await messagesJson.json()
+        console.log('savedEvents', savedEvents)
 
-      this.setState({
-        savedEvents,
-      })
+        this.setState({
+          savedEvents,
+        })
+      }
     }
 
   render() {

@@ -13,8 +13,8 @@ export const login = (email, password) => {
     headers: headers,
     body: JSON.stringify({ email, password })
   }).then(res => res.json())
-    .then(({ token }) => {
-      window.sessionStorage.setItem('token', token)
+    .then(({ token, data }) => {
+      window.sessionStorage.setItem('user', JSON.stringify({ data, token }))
       console.log('token', token)
     })
     .catch(err => console.log(err))
