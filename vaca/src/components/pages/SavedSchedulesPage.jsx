@@ -8,13 +8,10 @@ class SavedSchedulesPage extends Component {
   state = {
     savedEvents: []
   }
-  //Connect to backend to grab API
     componentDidMount = async () => {
       await this.getDataFromAPI()
     }
-  // loading messages from the server
     getDataFromAPI = async () => {
-  // fetch messagesJson
       const messagesJson = await fetch('http://localhost:3000/savedEvents')
       let savedEvents = await messagesJson.json()
 

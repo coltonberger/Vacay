@@ -7,7 +7,7 @@ class Schedule extends Component {
       <div className="ui divided items">
         <div className="item">
           <div className="middle aligned content">
-            {this.props.savedEvent.events_id}
+            {this.props.savedEvent.eventName}
           </div>
         </div>
       </div>
