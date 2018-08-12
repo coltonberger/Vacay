@@ -12,6 +12,7 @@ class Schedule extends Component {
 
             <div className="div1">{this.props.savedEvent.eventName}</div>
             <div className="div2"><i type="button" value="remove" className="fa fa-window-close" aria-hidden="true"
+            onClick={() => this.props.deleteSingleSavedEvent(this.props.savedEvent.id, this.props.savedEvent.schedule_id)}
             /></div>
 
 

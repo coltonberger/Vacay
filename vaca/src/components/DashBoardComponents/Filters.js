@@ -11,7 +11,8 @@ const Filters = ({ locations, selectCityFilter, selectPriceFilter }) => {
 
       <div className='filteredOptions'>
         <select className="mini ui dropdown light-grey button" id='filterLocation' onChange={selectCityFilter}>
-          <option className='disabled'>City</option>
+          <option className='disabled' value=''>City</option>
+          <option value=''>All</option>
             {locations.map(location => <option key={location} value={location}>{location}</option>)}
         </select>
 

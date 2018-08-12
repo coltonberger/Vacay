@@ -8,6 +8,7 @@ const ScheduleList = props => {
     <Schedule
       key={savedEvent.id}
       savedEvent={savedEvent}
+      deleteSingleSavedEvent={props.deleteSingleSavedEvent}
     />
   )
 }

@@ -51,3 +51,11 @@ export const createSchedule = (EventList) => {
   })
   .catch(err => console.log(err))
 }
+
+export const deleteSingleEvent = (savedEventsid, scheduleId) => {
+  return fetch(`${API_ROOT}/savedEvents/${savedEventsid}/${scheduleId}`, {
+    method: 'DELETE',
+    headers: headers
+  })
+  .catch(err => console.log(err))
+}

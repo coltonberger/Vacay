@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ToolBar from '../SavedScheduleComponents/ToolBar'
 import ScheduleList from '../SavedScheduleComponents/ScheduleList'
+import { deleteSingleEvent } from '../../services/api'
 
 
 
@@ -27,11 +28,14 @@ class SavedSchedulesPage extends Component {
       }
     }
 
-    deleteSingleSavedEvent = event => {
+    deleteSingleSavedEvent = async (eventId, scheduleId) => {
+      await deleteSingleEvent(eventId, scheduleId);
+
+
       this.setState({
         savedEvents: this.state.savedEvents.filter((item, index) => {
-          return (index !== event);
-          console.log("state ===>", this.state)
+          return (item.id !== eventId);
+          //console.log("state ===>", this.state)
         })
       })
     }
@@ -44,7 +48,7 @@ class SavedSchedulesPage extends Component {
         <ToolBar/>
         <ScheduleList
           savedEvents={this.state.savedEvents}
-          deleteSingleSavedEvent={this.state.deleteSingleSavedEvent}
+          deleteSingleSavedEvent={this.deleteSingleSavedEvent}
         />
       </div>
     );

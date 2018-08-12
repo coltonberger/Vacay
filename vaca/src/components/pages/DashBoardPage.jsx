@@ -55,11 +55,14 @@ selectPriceFilter = (item) => {
   }
   this.setState({ filteredEvents, selectedPrice: value})
   }
+
+
    selectCityFilter = (item) => {
-    //console.log('item.target.value', item.target.value);
-    const selected = item.target.value;
+    console.log('item.target.value', item.target.value);
+    const selected = parseInt(item.target.value);
     //console.info(this);
     const filteredEvents = this.state.events.filter( event => event.eventCity === selected);
+    console.log('selectCityFilter filteredEvents', filteredEvents)
     this.setState({selected, filteredEvents})
    }
 
@@ -89,6 +92,9 @@ selectPriceFilter = (item) => {
 
   render() {
     const {events, selected, selectedPrice, filteredEvents} = this.state;
+    console.log('filteredEvents', filteredEvents);
+    console.log('events', events);
+    console.log('selected', selected);
 
     const style = {
       margin: 50,
