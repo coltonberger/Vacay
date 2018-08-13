@@ -36,7 +36,17 @@ class SignUpPage extends Component {
     const { firstName, lastName, email, password } = this.state
     signup({ firstName, lastName, email, password })
       .then(data => console.log('response data:', data))
+      //clear form
+      .then(this.setState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: ''
+      }))
+
   }
+
+
 
   render () {
     return (

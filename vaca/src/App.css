@@ -3,6 +3,10 @@
   margin: 15px auto;
 }
 
+.swal-overlay {
+  background-color: rgba(43, 165, 137, 0.45);
+}
+
 .schedule {
     position: relative;
     margin-top: -70px;

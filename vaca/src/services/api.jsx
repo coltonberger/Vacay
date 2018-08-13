@@ -1,3 +1,6 @@
+import swal from 'sweetalert';
+
+
 const API_ROOT = 'http://localhost:3000'
 const token = JSON.parse(sessionStorage.getItem('user')) ? JSON.parse(sessionStorage.getItem('user')).token : '';
 
@@ -13,6 +16,7 @@ export const login = (email, password) => {
     headers: headers,
     body: JSON.stringify({ email, password })
   }).then(res => res.json())
+
     .then(({ token, data }) => {
       window.sessionStorage.setItem('user', JSON.stringify({ data, token }))
       console.log('token', token)
@@ -32,8 +36,25 @@ export const signup = ({ firstName, lastName, email, password }) => {
       window.sessionStorage.setItem('user', JSON.stringify({ data, token }))
       return data
     })
-    .catch(err => console.log(err))
+    .then(() => {
+      swal({
+      title: "User created",
+      text: "Welcome to vā kā!",
+      icon: "success",
+      button: "Aww yiss!"
+    })
+    })
+    .catch((err) => {
+      console.log(err)
+      swal({
+        title: "This email already exists",
+        icon: "warning",
+        button: "ok"
+      })
+    })
 }
+
+
 
 export const logout = () => {
   window.sessionStorage.removeItem('token')
