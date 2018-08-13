@@ -42,11 +42,8 @@ class SignUpPage extends Component {
         lastName: '',
         email: '',
         password: ''
-      }))
-
+    }))
   }
-
-
 
   render () {
     return (

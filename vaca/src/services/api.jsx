@@ -2,32 +2,86 @@ import swal from 'sweetalert';
 
 
 const API_ROOT = 'http://localhost:3000'
-const token = JSON.parse(sessionStorage.getItem('user')) ? JSON.parse(sessionStorage.getItem('user')).token : '';
 
-const headers = {
-  'Content-Type': 'application/json',
-  Acccepts: 'application/json',
-  Authorization: `Bearer ${token}`
+const getHeaders = () => {
+  const token = JSON.parse(sessionStorage.getItem('user')) ? JSON.parse(sessionStorage.getItem('user')).token : '';
+  return  {
+    'Content-Type': 'application/json',
+    Acccepts: 'application/json',
+    Authorization: `Bearer ${token}`
+  }
 }
 
 export const login = (email, password) => {
   return fetch(`${API_ROOT}/login/`, {
     method: 'POST',
-    headers: headers,
+    headers: getHeaders(),
     body: JSON.stringify({ email, password })
   }).then(res => res.json())
 
-    .then(({ token, data }) => {
+    .then(({ token, data, error }) => {
+      if (error) {
+        const errorMessage = error.message;
+        swal({
+          title: errorMessage,
+          icon: "warning",
+          button: "ok"
+        })
+      }
       window.sessionStorage.setItem('user', JSON.stringify({ data, token }))
       console.log('token', token)
     })
-    .catch(err => console.log(err))
+    .catch((error) => {
+      console.log(error)
+  })
 }
+
+export const getEvents = async () => {
+  const messagesJson = await fetch(`${API_ROOT}/events`, {
+    method: 'GET',
+    headers: getHeaders(),
+  })
+
+  let response = await messagesJson.json()
+  if (response["data"]) {
+    let events = response["data"]
+    return events
+  }
+  return []
+}
+
+export const isLoggedIn = () => {
+  if (JSON.parse(sessionStorage.getItem("user")).token) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// getDataFromAPI = async () => {
+// // fetch messagesJson
+//   const messagesJson = await fetch('http://localhost:3000/events')
+//   let response = await messagesJson.json()
+//   if (response["data"]) {
+//     let events = response["data"]
+//     let locations = events.map(event => event.eventCity)
+//     locations = [...new Set(locations)]
+//     this.setState({
+//       events,
+//       locations,
+//     })
+//   }
+// }
+
+
+
+
+
 
 export const signup = ({ firstName, lastName, email, password }) => {
   return fetch(`${API_ROOT}/users/`, {
     method: 'POST',
-    headers: headers,
+    headers: getHeaders(),
     body: JSON.stringify({ firstName, lastName, email, password })
   }).then(res => res.json())
     .then(({ data, token }) => {
@@ -37,12 +91,12 @@ export const signup = ({ firstName, lastName, email, password }) => {
       return data
     })
     .then(() => {
-      swal({
-      title: "User created",
-      text: "Welcome to vā kā!",
-      icon: "success",
-      button: "Aww yiss!"
-    })
+        swal({
+        title: "User created",
+        text: "Welcome to vā kā!",
+        icon: "success",
+        button: "ok"
+      })
     })
     .catch((err) => {
       console.log(err)
@@ -55,9 +109,8 @@ export const signup = ({ firstName, lastName, email, password }) => {
 }
 
 
-
 export const logout = () => {
-  window.sessionStorage.removeItem('token')
+  window.sessionStorage.removeItem('user')
 }
 
 export const createSchedule = (EventList) => {
@@ -67,16 +120,31 @@ export const createSchedule = (EventList) => {
   }
   return fetch(`${API_ROOT}/schedules/`, {
     method: 'POST',
-    headers: headers,
+    headers: getHeaders(),
     body: JSON.stringify({events: EventList, userId:user.id})
   })
-  .catch(err => console.log(err))
+  .then(() => {
+      swal({
+      title: "Schedule Saved!",
+      text: "check saved schedules to review",
+      icon: "success",
+      button: "ok"
+    })
+  })
+  .catch((err) => {
+    console.log(err)
+    swal({
+      title: "Make sure you are logged in",
+      icon: "warning",
+      button: "ok"
+    })
+  })
 }
 
 export const deleteSingleEvent = (savedEventsid, scheduleId) => {
   return fetch(`${API_ROOT}/savedEvents/${savedEventsid}/${scheduleId}`, {
     method: 'DELETE',
-    headers: headers
+    headers: getHeaders(),
   })
   .catch(err => console.log(err))
 }

@@ -3,7 +3,8 @@ import ToolBar from '../DashBoardComponents/ToolBar'
 import Filters from '../DashBoardComponents/Filters'
 import EventList from '../DashBoardComponents/EventList';
 import Schedule from '../DashBoardComponents/Schedule';
-import { createSchedule } from '../../services/api'
+//import { createSchedule } from '../../services/api';
+import { getEvents, isLoggedIn, createSchedule } from '../../services/api'
 
 
 class DashBoardPage extends Component {
@@ -18,20 +19,17 @@ class DashBoardPage extends Component {
 
 //Connect to backend to grab API
   componentDidMount = async () => {
+    if (!isLoggedIn()){
+      this.props.history.push('/')
+    }
     await this.getDataFromAPI()
 
-    //for localStorage
     window.sessionStorage.removeItem('schedule')
-    // const savedEvents = localStorage.getItem('schedule');
-    // if(savedEvents) {
-    //   this.setState({scheduledEvents: JSON.parse(savedEvents)})
-    // }
   }
 // loading messages from the server
   getDataFromAPI = async () => {
 // fetch messagesJson
-    const messagesJson = await fetch('http://localhost:3000/events')
-    let events = await messagesJson.json()
+    const events = await getEvents()
     let locations = events.map(event => event.eventCity)
     locations = [...new Set(locations)]
     this.setState({
@@ -57,36 +55,40 @@ selectPriceFilter = (item) => {
   }
 
 
-   selectCityFilter = (item) => {
-    console.log('item.target.value', item.target.value);
-    const selected = parseInt(item.target.value);
-    //console.info(this);
-    const filteredEvents = this.state.events.filter( event => event.eventCity === selected);
-    console.log('selectCityFilter filteredEvents', filteredEvents)
-    this.setState({selected, filteredEvents})
-   }
+selectCityFilter = (item) => {
+  console.log('item.target.value', item.target.value);
+  const selected = parseInt(item.target.value);
+  //console.info(this);
+  const filteredEvents = this.state.events.filter( event => event.eventCity === selected);
+  console.log('selectCityFilter filteredEvents', filteredEvents)
+  this.setState({selected, filteredEvents})
+ }
 
-  scheduleEvent = event => {
-    this.setState({ scheduledEvents: [...this.state.scheduledEvents, event]})
-  }
+scheduleEvent = event => {
+  this.setState({ scheduledEvents: [...this.state.scheduledEvents, event]})
+}
 
-  deleteSingleEvent = event => {
-    this.setState({
-      scheduledEvents:this.state.scheduledEvents.filter((item, index) => {
-        return (index !== event);
-      })
+deleteSingleEvent = event => {
+  this.setState({
+    scheduledEvents:this.state.scheduledEvents.filter((item, index) => {
+      return (index !== event);
     })
-  }
+  })
+}
 
-  deleteAllEvents = event => {
-    this.setState({scheduledEvents: []})
-  }
+deleteAllEvents = event => {
+  this.setState({scheduledEvents: []})
+}
 
-  saveSchedule = () => {
-    sessionStorage.setItem('schedule', JSON.stringify(this.state.scheduledEvents))
-    createSchedule(this.state.scheduledEvents)
-      .then(results => console.log(results))
-  }
+saveSchedule = () => {
+  sessionStorage.setItem('schedule', JSON.stringify(this.state.scheduledEvents))
+  createSchedule(this.state.scheduledEvents)
+    .then(results => console.log(results))
+    //clear form
+    .then(this.setState({
+      scheduledEvents: []
+  }))
+}
 
 
 
