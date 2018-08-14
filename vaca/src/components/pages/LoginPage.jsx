@@ -39,10 +39,10 @@ class LoginPage extends Component {
   render () {
     return (
       <div className= 'container'>
-        <h1 class="centered"></h1>
+        <h1 className="centered"></h1>
           <img id='postcard1' src="http://dancingmood.net/wp-content/uploads/2017/05/Free-Blank-Postcard-Template-For-Word-2.jpg" alt="post card one" alt="post card one" />
 
-          <div class="top-left">
+          <div className="top-left">
           <div>vā kā</div><br/>
           <div>enjoy cities like a local</div>
           </div>
