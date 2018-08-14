@@ -21,9 +21,9 @@ export const login = (email, password) => {
 
     .then(({ token, data, error }) => {
       if (error) {
-        const errorMessage = error.message;
+        //const errorMessage = error.message;
         swal({
-          title: errorMessage,
+          title: "email and password don't match",
           icon: "warning",
           button: "ok"
         })
@@ -57,26 +57,6 @@ export const isLoggedIn = () => {
     return false;
   }
 }
-
-// getDataFromAPI = async () => {
-// // fetch messagesJson
-//   const messagesJson = await fetch('http://localhost:3000/events')
-//   let response = await messagesJson.json()
-//   if (response["data"]) {
-//     let events = response["data"]
-//     let locations = events.map(event => event.eventCity)
-//     locations = [...new Set(locations)]
-//     this.setState({
-//       events,
-//       locations,
-//     })
-//   }
-// }
-
-
-
-
-
 
 export const signup = ({ firstName, lastName, email, password }) => {
   return fetch(`${API_ROOT}/users/`, {
