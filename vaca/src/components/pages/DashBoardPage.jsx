@@ -3,7 +3,6 @@ import ToolBar from '../DashBoardComponents/ToolBar'
 import Filters from '../DashBoardComponents/Filters'
 import EventList from '../DashBoardComponents/EventList';
 import Schedule from '../DashBoardComponents/Schedule';
-//import { createSchedule } from '../../services/api';
 import { getEvents, isLoggedIn, createSchedule } from '../../services/api'
 
 
@@ -41,9 +40,10 @@ class DashBoardPage extends Component {
 //FILTER CHANGES
 selectPriceFilter = (item) => {
   const value = item.target.value
-  console.log('item.target.value', item.target.value);
-  console.info(this)
+  //console.log('item.target.value', item.target.value);
+  //console.info(this)
   let filteredEvents = []
+
   if(value === '1') {
     filteredEvents = this.state.events.filter( event => event.eventPrice < 20);
   } else if (value === '2') {
@@ -57,11 +57,11 @@ selectPriceFilter = (item) => {
 
 selectCityFilter = (item) => {
   console.log('item.target.value', item.target.value);
-  const selected = parseInt(item.target.value);
+  const selected = item.target.value;
   //console.info(this);
   const filteredEvents = this.state.events.filter( event => event.eventCity === selected);
   console.log('selectCityFilter filteredEvents', filteredEvents)
-  this.setState({selected, filteredEvents})
+  this.setState({ selected, filteredEvents })
  }
 
 scheduleEvent = event => {

@@ -10,20 +10,24 @@ const Filters = ({ locations, selectCityFilter, selectPriceFilter }) => {
       </div>
 
       <div className='filteredOptions'>
+      <div class='default text' role='alert' aria-live='polite'>
+        City &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Price per activity
+      </div>
         <select className="mini ui dropdown light-grey button" id='filterLocation' onChange={selectCityFilter}>
-          <option className='disabled' value=''>City</option>
-          <option value=''>All</option>
+          <option value='all'>All</option>
             {locations.map(location => <option key={location} value={location}>{location}</option>)}
         </select>
 
         <select className='mini ui dropdown light-grey button' id='filterPrice' onChange={selectPriceFilter}>
-          <option className='disabled'>price/activity</option>
           <option value=''>All</option>
           <option value='1'> Less than $20</option>
           <option value='2'>$20-$40</option>
           <option value='3'>Greater than $40</option>
         </select>
       </div>
+
+
+
     </div>
   )
 }
