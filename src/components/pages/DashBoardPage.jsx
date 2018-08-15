@@ -13,6 +13,7 @@ class DashBoardPage extends Component {
     locations: [],
     selected: '',
     selectedPrice: '',
+    selectedCity: '',
     scheduledEvents: []
   }
 
@@ -52,6 +53,7 @@ selectPriceFilter = (item) => {
     filteredEvents = this.state.events.filter( event => event.eventPrice > 40);
   }
   this.setState({ filteredEvents, selectedPrice: value})
+
   }
 
 
@@ -62,6 +64,7 @@ selectCityFilter = (item) => {
   const filteredEvents = this.state.events.filter( event => event.eventCity === selected);
   //console.log('selectCityFilter filteredEvents', filteredEvents)
   this.setState({ selected, filteredEvents })
+
  }
 
 scheduleEvent = event => {
@@ -92,9 +95,9 @@ saveSchedule = () => {
 
   render() {
     const {events, selected, selectedPrice, filteredEvents} = this.state;
-    console.log('filteredEvents', filteredEvents);
-    console.log('events', events);
-    console.log('selected', selected);
+    //console.log('filteredEvents', filteredEvents);
+    //console.log('events', events);
+    //console.log('selected', selected);
 
     const style = {
       margin: 50,
