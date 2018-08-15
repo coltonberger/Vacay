@@ -12,8 +12,8 @@ class DashBoardPage extends Component {
     filteredEvents: [],
     locations: [],
     selected: '',
-    selectedPrice: '',
-    selectedCity: '',
+    priceFilter: '',
+    cityFilter: '',
     scheduledEvents: []
   }
 
@@ -39,31 +39,44 @@ class DashBoardPage extends Component {
   }
 
 //FILTER CHANGES
-selectPriceFilter = (item) => {
-  const value = item.target.value
-  //console.log('item.target.value', item.target.value);
-  //console.info(this)
-  let filteredEvents = []
+filter = () => {
+    console.log('this.state', this.state);
+    //console.info(this)
+    let filteredEvents = []
 
-  if(value === '1') {
-    filteredEvents = this.state.events.filter( event => event.eventPrice < 20);
-  } else if (value === '2') {
-    filteredEvents = this.state.events.filter( event => (event.eventPrice > 20) && (event.eventPrice < 40));
-  } else if (value === '3') {
-    filteredEvents = this.state.events.filter( event => event.eventPrice > 40);
-  }
-  this.setState({ filteredEvents, selectedPrice: value})
+    if(this.state.priceFilter === '1') {
+      filteredEvents = this.state.events.filter( event => event.eventPrice < 20);
+    } else if (this.state.priceFilter === '2') {
+      filteredEvents = this.state.events.filter( event => (event.eventPrice > 20) && (event.eventPrice < 40));
+    } else if (this.state.priceFilter === '3') {
+      filteredEvents = this.state.events.filter( event => event.eventPrice > 40);
+    } else {
+      filteredEvents = this.state.events;
+    }
+
+    if(this.state.cityFilter !== '') {
+      filteredEvents = filteredEvents.filter(event => event.eventCity === this.state.cityFilter);
+      console.log('filteredEvents', filteredEvents);
+    }
+
+    return filteredEvents;
 
   }
+
+  selectPriceFilter = (item) => {
+      const priceFilter = item.target.value
+      //console.log('item.target.value', item.target.value);
+      //console.info(this)
+      this.setState({ priceFilter })
+    }
 
 
 selectCityFilter = (item) => {
-  //console.log('item.target.value', item.target.value);
-  const selected = item.target.value;
+  console.log('item.target.value', item.target.value);
+  const cityFilter = item.target.value;
   //console.info(this);
-  const filteredEvents = this.state.events.filter( event => event.eventCity === selected);
   //console.log('selectCityFilter filteredEvents', filteredEvents)
-  this.setState({ selected, filteredEvents })
+  this.setState({ cityFilter })
 
  }
 
@@ -120,7 +133,7 @@ saveSchedule = () => {
 
         <div style = { style }>
         <EventList
-          events={(selected !=='') || (selectedPrice !=='') ? filteredEvents : events}
+          events={this.filter()}
           filterPrices={this.state.filterPrices}
           filterCities={this.state.filterCities}
           scheduleEvent={this.scheduleEvent}

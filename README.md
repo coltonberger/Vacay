@@ -1,4 +1,4 @@
-# Vacay (new Name)
+# vā kā
 Q3 Project - Full stack React app
 
 ## Deployed URL:
