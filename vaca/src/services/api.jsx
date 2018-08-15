@@ -1,7 +1,7 @@
 import swal from 'sweetalert';
 
 
-const API_ROOT = 'http://localhost:3000'
+const API_ROOT = 'https://vaca-backend.herokuapp.com'
 
 const getHeaders = () => {
   const token = JSON.parse(sessionStorage.getItem('user')) ? JSON.parse(sessionStorage.getItem('user')).token : '';
