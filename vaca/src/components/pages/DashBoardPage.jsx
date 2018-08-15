@@ -56,11 +56,11 @@ selectPriceFilter = (item) => {
 
 
 selectCityFilter = (item) => {
-  console.log('item.target.value', item.target.value);
+  //console.log('item.target.value', item.target.value);
   const selected = item.target.value;
   //console.info(this);
   const filteredEvents = this.state.events.filter( event => event.eventCity === selected);
-  console.log('selectCityFilter filteredEvents', filteredEvents)
+  //console.log('selectCityFilter filteredEvents', filteredEvents)
   this.setState({ selected, filteredEvents })
  }
 
@@ -89,8 +89,6 @@ saveSchedule = () => {
       scheduledEvents: []
   }))
 }
-
-
 
   render() {
     const {events, selected, selectedPrice, filteredEvents} = this.state;

@@ -73,7 +73,7 @@ export const signup = ({ firstName, lastName, email, password }) => {
     .then(() => {
         swal({
         title: "User created",
-        text: "Welcome to vā kā!",
+        text: "Welcome to vā kā! Please sign in to verify account",
         icon: "success",
         button: "ok"
       })
