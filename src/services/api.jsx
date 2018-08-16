@@ -1,6 +1,5 @@
 import swal from 'sweetalert';
 
-
 const API_ROOT = 'https://vaca-backend.herokuapp.com'
 //const API_ROOT = 'http://localhost:3000'
 
@@ -22,7 +21,6 @@ export const login = (email, password) => {
 
     .then(({ token, data, error }) => {
       if (error) {
-        //const errorMessage = error.message;
         swal({
           title: "email and password don't match",
           icon: "warning",

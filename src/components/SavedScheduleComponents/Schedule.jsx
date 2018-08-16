@@ -8,14 +8,10 @@ class Schedule extends Component {
         <div className="card">
           <div className="content">
             <div className="header">
-
-
             <div className="div1">{this.props.savedEvent.eventName}</div>
             <div className="div2"><i type="button" value="remove" className="fa fa-window-close" aria-hidden="true"
-            onClick={() => this.props.deleteSingleSavedEvent(this.props.savedEvent.id, this.props.savedEvent.schedule_id)}
+                 onClick={() => this.props.deleteSingleSavedEvent(this.props.savedEvent.id, this.props.savedEvent.schedule_id)}
             /></div>
-
-
             </div>
             <div className="meta"></div>
             <div className="description">

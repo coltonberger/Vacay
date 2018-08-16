@@ -26,9 +26,7 @@ class DashBoardPage extends Component {
 
     window.sessionStorage.removeItem('schedule')
   }
-// loading messages from the server
   getDataFromAPI = async () => {
-// fetch messagesJson
     const events = await getEvents()
     let locations = events.map(event => event.eventCity)
     locations = [...new Set(locations)]
@@ -41,7 +39,6 @@ class DashBoardPage extends Component {
 //FILTER CHANGES
 filter = () => {
     console.log('this.state', this.state);
-    //console.info(this)
     let filteredEvents = []
 
     if(this.state.priceFilter === '1') {
@@ -65,19 +62,13 @@ filter = () => {
 
   selectPriceFilter = (item) => {
       const priceFilter = item.target.value
-      //console.log('item.target.value', item.target.value);
-      //console.info(this)
       this.setState({ priceFilter })
     }
 
 
 selectCityFilter = (item) => {
-  console.log('item.target.value', item.target.value);
   const cityFilter = item.target.value;
-  //console.info(this);
-  //console.log('selectCityFilter filteredEvents', filteredEvents)
   this.setState({ cityFilter })
-
  }
 
 scheduleEvent = event => {
@@ -100,7 +91,6 @@ saveSchedule = () => {
   sessionStorage.setItem('schedule', JSON.stringify(this.state.scheduledEvents))
   createSchedule(this.state.scheduledEvents)
     .then(results => console.log(results))
-    //clear form
     .then(this.setState({
       scheduledEvents: []
   }))
@@ -108,9 +98,6 @@ saveSchedule = () => {
 
   render() {
     const {events, selected, selectedPrice, filteredEvents} = this.state;
-    //console.log('filteredEvents', filteredEvents);
-    //console.log('events', events);
-    //console.log('selected', selected);
 
     const style = {
       margin: 50,

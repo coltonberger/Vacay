@@ -28,8 +28,6 @@ class LoginPage extends Component {
   handleSubmit (e) {
     e.preventDefault()
 
-    //console.log('The form was submitted with the following data:')
-    //console.log(this.state)
     const { email, password } = this.state
     login(email, password)
       .then(() => this.props.history.push('/dashboard'))

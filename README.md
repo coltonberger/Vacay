@@ -1,7 +1,7 @@
 # vā kā
 Q3 Project - Full stack React app
 
-## Deployed URL:
+## Deployed URL: https://va-ca.herokuapp.com/
 
 ## What are you looking at?
 Vacay is your solution to easily browse and save events in major cities.
@@ -21,7 +21,7 @@ Front-end: JavaScript, React, CSS Framework
 - [x] Include some client-side validation.
 - [x] Have your frontend interact with routes via AJAX.
 - [x] Have a separate project directory and GitHub repository for your frontend.
-- [ ] Deploy your site.
+- [x] Deploy your site.
 - [ ] Have full test coverage.
 
 ### Additional
