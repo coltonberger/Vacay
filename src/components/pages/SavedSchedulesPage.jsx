@@ -17,7 +17,7 @@ class SavedSchedulesPage extends Component {
     getDataFromAPI = async () => {
       if (sessionStorage.getItem('user')) {
         const userId= JSON.parse(sessionStorage.getItem('user')).data.id
-        const messagesJson = await fetch(`http://localhost:3000/schedules/${userId}`)
+        const messagesJson = await fetch(`https://vaca-backend.herokuapp.com/schedules/${userId}`)
         let savedEvents = await messagesJson.json()
 
         this.setState({
