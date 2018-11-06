@@ -7,8 +7,8 @@ Q3 Project - Full stack React app
 vā kā is your solution to easily browse and save events in major cities.
 
 ## Installation
-1. yarn install
-2. yarn start
+1. npm install
+2. npm start
 
 ## Technologies:
 Front-end: JavaScript, React, CSS Framework
